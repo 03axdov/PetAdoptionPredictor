@@ -95,3 +95,10 @@ test_age_layer = get_category_encoding_layer(name="Age",
                                              max_tokens=5)
 
 print(test_age_layer(test_age_col))
+
+BATCH_SIZE = 256
+train_ds = df_to_dataset(train, batch_size=BATCH_SIZE)
+val_ds = df_to_dataset(val, shuffle=False, batch_size=BATCH_SIZE)
+test_ds = df_to_dataset(test, shuffle=False, batch_size=BATCH_SIZE)
+
+all_inputs = []
